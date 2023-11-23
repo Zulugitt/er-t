@@ -65,9 +65,12 @@ services:
       - ./main-dashboard.json:/var/lib/grafana/dashboards/main-dashboard.json
       - ./automatic.yaml:/etc/grafana/provisioning/datasources/automatic.yaml
     environment:
-      - GF_SECURITY_ADMIN_USER=admin
+#      - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ORG_ROLE=viewer
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
       - GF_SERVER_ROOT_URL=http://localhost/grafana/
     restart: unless-stopped
     expose:
