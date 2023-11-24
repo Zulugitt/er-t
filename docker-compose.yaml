@@ -72,6 +72,7 @@ services:
       - GF_AUTH_ORG_ROLE=viewer
       - GF_AUTH_DISABLE_LOGIN_FORM=true
       - GF_SERVER_ROOT_URL=http://localhost/grafana/
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH:/var/lib/grafana/dashboards/
     restart: unless-stopped
     expose:
       - 3000
